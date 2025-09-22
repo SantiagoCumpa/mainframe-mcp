@@ -1,4 +1,4 @@
-from fastmcp import FastMCP, Context
+from fastmcp import FastMCP
 
 from typing import Optional
 from schemas import McpResponse
@@ -21,7 +21,7 @@ mcp = FastMCP (
     name="GetMember",
     description="Retrieve a member from the mainframe.",
 )
-async def get_member(member: str , library: str, output_path: Optional[str], ctx: Context) -> McpResponse:
+async def get_member(member: str , library: str, output_path: Optional[str]) -> McpResponse:
     """
     Fetch a member from the mainframe and save it to the specified output path.
     """
