@@ -1,6 +1,6 @@
 import aiohttp
 
-from data_types import ApiResponse
+from schemas import ApiResponse
 
 class HttpClient:
     @staticmethod

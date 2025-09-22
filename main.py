@@ -1,7 +1,7 @@
-from fastmcp import FastMCP
+from fastmcp import FastMCP, Context
 
 from typing import Optional
-from data_types import McpResponse
+from schemas import McpResponse
 
 from client import http_client
 
@@ -11,13 +11,17 @@ import os
 load_dotenv()
 MAINFRAME_API = os.getenv("MAINFRAME_API")
 
-mcp = FastMCP("My MCP Server")
+mcp = FastMCP (
+    name="My MCP Server", 
+    instructions="This MCP server interacts with a mainframe system to retrieve members and datasets.", 
+    version="1.0.0"
+)
 
 @mcp.tool(
     name="GetMember",
     description="Retrieve a member from the mainframe.",
 )
-async def get_member(member: str , library: str, output_path: Optional[str]) -> McpResponse:
+async def get_member(member: str , library: str, output_path: Optional[str], ctx: Context) -> McpResponse:
     """
     Fetch a member from the mainframe and save it to the specified output path.
     """

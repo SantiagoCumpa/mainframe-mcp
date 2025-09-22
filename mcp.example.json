@@ -1,0 +1,14 @@
+// Example configuration for MCP
+{
+	"servers": {
+		"<mcp-name>": {
+			"type": "stdio",
+			"command": "<path-to-fastmcp-executable>",
+			"args": [
+				"run", 
+                "<path-to-main-py-file>"
+			]
+		}
+	},
+	"inputs": []
+}
